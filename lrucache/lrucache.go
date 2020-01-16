@@ -3,7 +3,7 @@ package lrucache
 import (
 	"sync"
 
-	"github.com/atdevp/lrucache/lru"
+	"github.com/atdevp/devlib/lrucache/lru"
 )
 
 type Cache struct {
