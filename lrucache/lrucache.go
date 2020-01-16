@@ -32,6 +32,12 @@ func (c *Cache) Contains(key interface{}) bool {
 	return c.lru.Exist(key)
 }
 
+func (c *Cache) Get(key interface{}) (interface{}, bool) {
+	c.lock.RLock()
+	defer c.lock.RUnlock()
+	return c.lru.Get(key)
+}
+
 func (c *Cache) Remove(key interface{}) {
 	c.lock.Lock()
 	defer c.lock.Unlock()
